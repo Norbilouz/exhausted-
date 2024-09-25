@@ -32,7 +32,7 @@ function toggleFan() {
     toggleButton.textContent = 'Turn On Fan'; // Ubah teks tombol
   } else {
     // Hidupkan kipas
-    intervalId = setInterval(animateFan, 100); // Jalankan animasi setiap 100ms
+    intervalId = setInterval(animateFan, 100); // Jalankan animasi setiap 2 0ms
     toggleButton.textContent = 'Turn Off Fan'; // Ubah teks tombol
   }
   isFanOn = !isFanOn; // Ubah status kipas
