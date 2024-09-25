@@ -10,33 +10,37 @@ const frames = [
   'svg/fan8.svg'
 ];
 
- let currentFrame = 0; // Frame saat ini
-let isFanOn = false; // Status kipas (mati di awal)
-let intervalId = null; // Untuk menyimpan ID interval animasi
-
-const fan = document.getElementById('fan');
-const toggleButton = document.getElementById('toggleFan');
+let isFanOn = Array(10).fill(false); // Status kipas untuk 10 kipas (mati di awal)
+let intervalIds = Array(10).fill(null); // Untuk menyimpan ID interval animasi tiap kipas
 
 // Fungsi untuk mengganti frame animasi
-function animateFan() {
-  fan.src = frames[currentFrame]; // Ganti gambar berdasarkan frame saat ini
-  currentFrame = (currentFrame + 1) % frames.length; // Ulang dari frame pertama jika sudah sampai frame terakhir
+function animateFan(fanElement, currentFanIndex) {
+  let currentFrame = 0;
+  intervalIds[currentFanIndex] = setInterval(() => {
+    fanElement.src = frames[currentFrame]; // Ganti gambar berdasarkan frame saat ini
+    currentFrame = (currentFrame + 1) % frames.length; // Ulang dari awal jika sudah sampai frame terakhir
+  }, 25);
 }
 
-// Fungsi untuk menghidupkan/mematikan kipas
-function toggleFan() {
-  if (isFanOn) {
+// Fungsi untuk menghidupkan/mematikan kipas tertentu
+function toggleFan(fanIndex) {
+  const fanElement = document.getElementById(`fan${fanIndex + 1}`);
+  const toggleButton = document.getElementById(`toggleFan${fanIndex + 1}`);
+
+  if (isFanOn[fanIndex]) {
     // Matikan kipas
-    clearInterval(intervalId); // Hentikan animasi
-    fan.src = 'svg/fanoff.svg'; // Ganti ke gambar kipas mati
-    toggleButton.textContent = 'Turn On Fan'; // Ubah teks tombol
+    clearInterval(intervalIds[fanIndex]); // Hentikan animasi
+    fanElement.src = 'svg/fanoff.svg'; // Ganti ke gambar kipas mati
+    toggleButton.textContent = `Turn On Fan ${fanIndex + 1}`; // Ubah teks tombol
   } else {
     // Hidupkan kipas
-    intervalId = setInterval(animateFan, 5 ); // Jalankan animasi setiap 20 ms
-    toggleButton.textContent = 'Turn Off Fan'; // Ubah teks tombol
+    animateFan(fanElement, fanIndex); // Jalankan animasi
+    toggleButton.textContent = `Turn Off Fan ${fanIndex + 1}`; // Ubah teks tombol
   }
-  isFanOn = !isFanOn; // Ubah status kipas
+  isFanOn[fanIndex] = !isFanOn[fanIndex]; // Ubah status kipas
 }
 
-// Pasang event listener untuk tombol on/off
-toggleButton.addEventListener('click', toggleFan);
+// Tambahkan event listener untuk setiap tombol
+for (let i = 0; i < 10; i++) {
+  document.getElementById(`toggleFan${i + 1}`).addEventListener('click', () => toggleFan(i));
+}
