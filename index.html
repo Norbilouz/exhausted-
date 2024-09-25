@@ -1,0 +1,30 @@
+<html>
+<head>
+  <style>
+    /* Animasi rotasi */
+    @keyframes rotateFan {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Terapkan animasi pada elemen dengan ID #fan */
+    #fan {
+      animation: rotateFan 2s infinite linear;
+      transform-origin: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Gambar kipas SVG -->
+  <svg id="fan" width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Tambahkan elemen path atau use untuk gambar fan -->
+    <circle cx="100" cy="100" r="90" fill="#eee"/>
+    <path d="M50,100 L150,100" stroke="#000" stroke-width="5"/>
+    <!-- Gambar kipas SVG lainnya bisa ditambahkan di sini -->
+  </svg>
+</body>
+</html>
