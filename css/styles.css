@@ -13,10 +13,11 @@ h1 {
 
 /* Mengatur grid untuk 5 kipas per baris */
 .fans-container {
-  display: flex;
-  flex-wrap: wrap; /* Membolehkan elemen membungkus ke baris berikutnya */
-  justify-content: center; /* Pusatkan kipas di grid */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 kipas dalam 1 baris */
   gap: 20px; /* Jarak antar kipas */
+  justify-items: center; /* Pusatkan kipas di grid */
+  align-items: center;
   max-width: 1000px; /* Atur lebar maksimal untuk menjaga tata letak */
   margin: 0 auto; /* Pusatkan kontainer di tengah halaman */
 }
