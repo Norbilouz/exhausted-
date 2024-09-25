@@ -46,3 +46,9 @@ button {
 button:hover {
   background-color: #45a049;
 }
+
+.fan-unit p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: center;
+}
