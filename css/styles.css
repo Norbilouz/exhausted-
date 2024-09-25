@@ -1,0 +1,18 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+.fan-container {
+  width: 200px;
+  height: 200px;
+}
+
+#fan {
+  width: 100%;
+  height: 100%;
+}
