@@ -19,7 +19,7 @@ function animateFan(fanElement, currentFanIndex) {
   intervalIds[currentFanIndex] = setInterval(() => {
     fanElement.src = frames[currentFrame]; // Ganti gambar berdasarkan frame saat ini
     currentFrame = (currentFrame + 1) % frames.length; // Ulang dari awal jika sudah sampai frame terakhir
-  }, 20);
+  }, 15);
 }
 
 // Fungsi untuk menghidupkan/mematikan kipas tertentu
