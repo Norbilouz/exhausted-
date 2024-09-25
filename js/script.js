@@ -20,4 +20,4 @@ function animateFan() {
 }
 
 // Atur interval untuk mengganti frame setiap 100ms
-setInterval(animateFan, 100);
+setInterval(animateFan, 10);
