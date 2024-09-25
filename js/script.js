@@ -1,13 +1,13 @@
 // Daftar frame animasi
 const frames = [
-  'svg/fan1.svg',
-  'svg/fan2.svg',
-  'svg/fan3.svg',
-  'svg/fan4.svg',
-  'svg/fan5.svg',
-  'svg/fan6.svg',
-  'svg/fan7.svg',
-  'svg/fan8.svg'
+  'svg/EFan1.svg',
+  'svg/EFan2.svg',
+  'svg/EFan3.svg',
+  'svg/EFan4.svg',
+  'svg/EFan5.svg',
+  'svg/EFan6.svg',
+  'svg/EFan7.svg',
+  'svg/EFan8.svg'
 ];
 
 let isFanOn = Array(10).fill(false); // Status kipas untuk 10 kipas (mati di awal)
